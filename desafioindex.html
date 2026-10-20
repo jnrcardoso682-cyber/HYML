@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wide coverage location</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Cores (tiradas do design e da ilustração)
+       Verde botões/links: #4c9c2b | Verde claro da ilustração: #6fbe44 | Verde menta (fundo): #d9fcc9
+       Azul-marinho títulos: #14194a | Texto do parágrafo: #3b3f5c | Fundo da página: #ffffff */
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #ffffff;
+      color: #3b3f5c;
+      font-family: "Poppins", system-ui, sans-serif;
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: #14194a; }
+
+    /* ======== CELULAR (padrão) ======== */
+    .topbar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .login { margin-left: auto; font-size: 0.9rem; font-weight: 500; color: #14194a; }
+
+    .btn {
+      display: inline-block;
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.55rem 1.3rem;
+      border-radius: 8px;
+      border: 2px solid #4c9c2b;
+      cursor: pointer;
+    }
+    .btn-solid { background-color: #4c9c2b; color: #ffffff; }
+    .btn-solid:hover { background-color: #14194a; border-color: #14194a; }
+
+    .btn-outline { background-color: transparent; color: #3f8a1f; border-color: #4c9c2b; }
+    .btn-outline:hover { background-color: #4c9c2b; color: #ffffff; }
+
+    /* Menu hambúrguer sem JavaScript */
+    #menu-toggle { position: absolute; opacity: 0; pointer-events: none; }
+
+    .hamburger {
+      order: -1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+    .hamburger span { display: block; height: 3px; border-radius: 3px; background-color: #14194a; }
+    #menu-toggle:focus-visible + .hamburger { outline: 3px solid #4c9c2b; border-radius: 8px; }
+
+    .menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 1.25rem;
+      right: 1.25rem;
+      z-index: 10;
+      flex-direction: column;
+      padding: 0.5rem 0;
+      background-color: #ffffff;
+      border: 2px solid #d9fcc9;
+      border-radius: 16px;
+    }
+    #menu-toggle:checked ~ .menu { display: flex; }
+    .menu a { padding: 0.8rem 1.25rem; font-weight: 500; color: #14194a; }
+    .menu a:hover { background-color: #f1fdea; }
+
+    /* Foto em cima, texto embaixo */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    .hero-art { margin: 0; width: 100%; }
+    .hero-art img { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto; }
+
+    .hero-text h1 {
+      margin: 0 0 1rem;
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.2;
+      color: #14194a;
+    }
+
+    .hero-text p {
+      margin: 0 auto 1.5rem;
+      max-width: 44ch;
+      font-size: 0.95rem;
+      color: #3b3f5c;
+    }
+
+    /* ======== COMPUTADOR (a partir de 801px) ======== */
+    @media (min-width: 801px) {
+      .topbar { padding: 1.25rem 4rem; gap: 1.5rem; }
+      .hamburger { display: none; }
+
+      .menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        gap: 2rem;
+        margin-right: auto;
+        padding: 0;
+        background: none;
+        border: 0;
+        border-radius: 0;
+        order: -1;
+      }
+      .menu a { padding: 0; font-size: 0.9rem; }
+      .menu a:hover { background: none; color: #4c9c2b; }
+
+      .login { margin-left: 0; font-size: 0.9rem; }
+
+      .hero {
+        flex-direction: row;
+        justify-content: center;
+        gap: 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 4rem 4rem;
+        text-align: left;
+      }
+      .hero-art { flex: 1 1 50%; }
+      .hero-art img { max-width: 560px; }
+      .hero-text { flex: 1 1 50%; }
+      .hero-text h1 { font-size: 3rem; max-width: 12ch; }
+      .hero-text p { margin: 0 0 1.75rem; max-width: 42ch; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <input type="checkbox" id="menu-toggle" aria-label="Abrir menu">
+    <label class="hamburger" for="menu-toggle" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="menu">
+      <a href="#">Products</a>
+      <a href="#">Company</a>
+      <a href="#">Blog</a>
+    </nav>
+
+    <a class="login" href="#">Log in</a>
+    <a class="btn btn-solid" href="#">Sign up</a>
+  </header>
+
+  <main class="hero">
+    <figure class="hero-art">
+      <img src="./img/Desafio.png" alt="Duas pessoas acenando, uma com medalha, segurando celulares">
+    </figure>
+
+    <section class="hero-text">
+      <h1>Wide coverage location</h1>
+      <p>
+        Shared rides, There’s lots to do in your city, and we’ve got the rides
+        to help you enjoy it all. And they’re all available right from your app.
+      </p>
+      <a class="btn btn-outline" href="#">Learn more</a>
+    </section>
+  </main>
+</body>
+</html>
