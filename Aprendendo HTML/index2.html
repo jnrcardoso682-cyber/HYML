@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>We care about your pet</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Cores: verde #1f7f63 | verde-azulado escuro #0b3d3c | parágrafo #2f5f5d | fundo #f4f9fe */
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #f4f9fe;
+      color: #0b3d3c;
+      font-family: "Nunito", system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: #0b3d3c; }
+
+    /* ---------- Topo ---------- */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      padding: 1.25rem 4rem;
+    }
+
+    .logo {
+      font-family: "Baloo 2", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: #1f7f63;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 2.5rem;
+      margin: 0 auto;
+    }
+
+    .menu a {
+      color: #0b3d3c;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      padding: 0.25rem 0;
+      border-bottom: 3px solid transparent;
+    }
+
+    .menu a:hover,
+    .menu a.active { border-bottom-color: #1f7f63; }
+
+    /* ---------- Botões ---------- */
+    .btn {
+      display: inline-block;
+      font-family: "Nunito", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      padding: 0.7rem 1.75rem;
+      border-radius: 999px;
+      border: 2px solid #1f7f63;
+      cursor: pointer;
+    }
+
+    .btn-outline { background-color: transparent; color: #1f7f63; }
+    .btn-outline:hover { background-color: #1f7f63; color: #ffffff; }
+
+    .btn-solid { background-color: #1f7f63; color: #ffffff; }
+    .btn-solid:hover { background-color: #0b3d3c; border-color: #0b3d3c; }
+
+    /* ---------- Foto à esquerda, texto à direita ---------- */
+    .hero {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 4rem 4rem;
+    }
+
+    .hero-art { flex: 1 1 50%; margin: 0; }
+
+    .hero-art img {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .hero-text { flex: 1 1 50%; }
+
+    .hero-text h1 {
+      margin: 0;
+      font-family: "Baloo 2", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 5rem;
+      line-height: 1;
+      color: #1f7f63;
+    }
+
+    .hero-text h2 {
+      margin: 0.25rem 0 1.25rem;
+      font-family: "Baloo 2", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 2.25rem;
+      line-height: 1.15;
+      color: #0b3d3c;
+    }
+
+    .hero-text p {
+      max-width: 46ch;
+      margin: 0 0 1.75rem;
+      font-size: 1.05rem;
+      color: #2f5f5d;
+    }
+
+    /* ---------- Celular e tablet: texto desce para baixo da foto ---------- */
+    @media (max-width: 800px) {
+      .topbar { padding: 1rem 1.25rem; }
+      .menu { order: 3; width: 100%; justify-content: center; gap: 0.5rem 1.25rem; }
+
+      .hero {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem 1.25rem 3rem;
+        text-align: center;
+      }
+      .hero-text p { margin-left: auto; margin-right: auto; }
+      .hero-text h1 { font-size: 3rem; }
+      .hero-text h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#">Pet</a>
+    <nav class="menu">
+      <a href="#" class="active">HOME</a>
+      <a href="#">ABOUT</a>
+      <a href="#">PRODUCTS</a>
+      <a href="#">CONTACT</a>
+    </nav>
+    <a class="btn btn-outline" href="#">LOG IN</a>
+  </header>
+
+  <main class="hero">
+    <figure class="hero-art">
+      <img src="./img/Desafio.png" alt="Mulher cuidando de um cachorro">
+    </figure>
+
+    <section class="hero-text">
+      <h1>WE CARE</h1>
+      <h2>ABOUT YOUR PET</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipiscing elit aenean a justo
+        quis mauris hendrerit pellentesque eget at ipsum quis cursus turpis.
+      </p>
+      <a class="btn btn-solid" href="#">EXPLORE</a>
+    </section>
+  </main>
+</body>
+</html>
